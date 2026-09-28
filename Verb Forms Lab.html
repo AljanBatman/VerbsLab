@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verb Forms Lab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F2FF;--card:#fff;--ink:#221B38;--mut:#6F6890;--line:#E4DEF7;--soft:#EEE9FF;--c1:#6D4AFF;--c2:#E8306F;--c3:#0EA383;--ok:#0EA383;--bad:#E5484D;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151024;--card:#1F1833;--ink:#F1ECFF;--mut:#A79FC8;--line:#33294F;--soft:#2A2144;--c1:#9A83FF;--c2:#FF7AAA;--c3:#35D6B0;--ok:#35D6B0;--bad:#FF7A7F}}
+:root[data-theme="dark"]{--bg:#151024;--card:#1F1833;--ink:#F1ECFF;--mut:#A79FC8;--line:#33294F;--soft:#2A2144;--c1:#9A83FF;--c2:#FF7AAA;--c3:#35D6B0;--ok:#35D6B0;--bad:#FF7A7F}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.45 'DM Sans',system-ui,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:18px 16px 40px}
+h1,h2,h3,.logo,.big,.ch,input,.num,.big2{font-family:'Sora','DM Sans',system-ui,sans-serif}
+h1,h2,h3{margin:0}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:700;font-size:19px}
+.dots i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:3px}
+.star{background:var(--card);border:1.5px solid var(--line);border-radius:99px;padding:6px 14px;font-weight:700}
+.mut{color:var(--mut);margin:4px 0 16px}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:18px}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:18px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--c1)}
+.card p{margin:4px 0 10px;color:var(--mut);font-size:14px}
+.num{font-size:13px;font-weight:700;color:var(--c1);margin-bottom:6px}
+.ex{font-weight:700;font-size:14px;background:var(--soft);border-radius:10px;padding:6px 10px;display:inline-block}
+.bst{margin-top:10px;font-size:13px;font-weight:700;color:var(--ok)}
+.ch{display:inline-block;padding:3px 10px;border-radius:99px;font-weight:700;font-size:12px;color:#fff}
+.k1{background:var(--c1)}.k2{background:var(--c2)}.k3{background:var(--c3)}
+.back,.btn2{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:8px 14px;font:700 14px 'DM Sans',sans-serif;color:var(--ink);cursor:pointer}
+.btn{background:var(--c1);border:0;border-radius:14px;padding:13px 26px;font:700 16px 'DM Sans',sans-serif;color:#fff;cursor:pointer}
+.title{margin:16px 0 0;font-size:26px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:5px;border-radius:14px;margin:6px 0 18px}
+.tab{flex:1;border:0;background:transparent;padding:10px;border-radius:10px;font:700 14px 'DM Sans',sans-serif;color:var(--mut);cursor:pointer}
+.tab.on{background:var(--card);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.bar{margin-bottom:8px}
+table{width:100%;border-collapse:separate;border-spacing:0 6px}
+th{text-align:left;padding:0 14px 2px}
+td{background:var(--card);padding:12px 14px;font-weight:700;border-top:1.5px solid var(--line);border-bottom:1.5px solid var(--line)}
+td:first-child{border-left:1.5px solid var(--line);border-radius:12px 0 0 12px}
+td:last-child{border-right:1.5px solid var(--line);border-radius:0 12px 12px 0}
+.f1{color:var(--c1)}.f2{color:var(--c2)}.f3{color:var(--c3)}
+.cov .h{cursor:pointer}.cov .h:not(.on) span{filter:blur(7px)}
+.pr{height:8px;background:var(--soft);border-radius:9px;overflow:hidden}
+.pr b{display:block;height:100%;background:var(--c1);transition:width .3s}
+.cnt{font-size:13px;color:var(--mut);margin:6px 0 14px;text-align:right}
+.pc{background:var(--card);border:1.5px solid var(--line);border-radius:22px;padding:26px 20px;text-align:center;margin-bottom:16px}
+.big{font-size:34px;font-weight:700;margin-top:10px}
+.sent{font-size:22px;font-weight:600;margin-top:12px;font-family:'Sora',sans-serif}
+.sent u{text-decoration:none;border-bottom:3px solid var(--c1);display:inline-block;width:70px}
+.hint{color:var(--mut);margin-top:8px;font-size:14px}
+.lb{display:block;margin-bottom:12px}
+.lb .ch{margin-bottom:6px}
+input{width:100%;font-size:18px;font-weight:600;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink);outline:0}
+input:focus{border-color:var(--c1)}
+input.ok{border-color:var(--ok)}input.bad{border-color:var(--bad)}
+.og{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{font:700 18px 'Sora',sans-serif;padding:16px 8px;border-radius:16px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+.opt:hover:not([disabled]){border-color:var(--c1)}
+.opt.ok{background:var(--ok);border-color:var(--ok);color:#fff}.opt.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.fb{margin-top:14px;font-weight:700;text-align:center}.fb.good{color:var(--ok)}.fb.bad{color:var(--bad)}
+.act{margin-top:18px;text-align:center;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.res{text-align:center;background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:36px 20px}
+.big2{font-size:56px;font-weight:700;color:var(--c1)}
+@media (max-width:480px){.og{grid-template-columns:1fr}.big{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="w">
+<header><div class="logo"><span class="dots"><i style="background:var(--c1)"></i><i style="background:var(--c2)"></i><i style="background:var(--c3)"></i></span>Verb Forms Lab</div><div class="star">⭐ <b id="sc">0</b></div></header>
+<div id="app"></div>
+</div>
+<script>
+const SEC=[
+["Essentials","The 15 you use every single day","be,was/were,been|have,had,had|do,did,done|go,went,gone|get,got,got/gotten|make,made,made|say,said,said|see,saw,seen|take,took,taken|come,came,come|give,gave,given|know,knew,known|think,thought,thought|find,found,found|tell,told,told"],
+["Daily life","Food, money, movement","eat,ate,eaten|sleep,slept,slept|buy,bought,bought|pay,paid,paid|sell,sold,sold|spend,spent,spent|lose,lost,lost|keep,kept,kept|leave,left,left|meet,met,met|run,ran,run|sit,sat,sat|mean,meant,meant|lead,led,led|feed,fed,fed"],
+["Never change","Same in all three forms (read sounds like “red” in the past)","cut,cut,cut|put,put,put|let,let,let|hit,hit,hit|hurt,hurt,hurt|shut,shut,shut|set,set,set|cost,cost,cost|quit,quit,quit|spread,spread,spread|read,read,read|bet,bet,bet|burst,burst,burst|cast,cast,cast|split,split,split"],
+["Two forms, one twin","Past simple = past participle","bring,brought,brought|catch,caught,caught|teach,taught,taught|fight,fought,fought|seek,sought,sought|build,built,built|send,sent,sent|lend,lent,lent|bend,bent,bent|feel,felt,felt|hold,held,held|hear,heard,heard|stand,stood,stood|understand,understood,understood|win,won,won"],
+["blew → blown","Participle ends in -n","blow,blew,blown|grow,grew,grown|throw,threw,thrown|draw,drew,drawn|fly,flew,flown|show,showed,shown|fall,fell,fallen|forget,forgot,forgotten|forgive,forgave,forgiven|hide,hid,hidden|ride,rode,ridden|rise,rose,risen|drive,drove,driven|write,wrote,written|bite,bit,bitten"],
+["broke → broken","Participle ends in -en","break,broke,broken|choose,chose,chosen|speak,spoke,spoken|steal,stole,stolen|freeze,froze,frozen|shake,shook,shaken|swear,swore,sworn|tear,tore,torn|wear,wore,worn|wake,woke,woken|lie,lay,lain|forbid,forbade,forbidden|mistake,mistook,mistaken|arise,arose,arisen|bear,bore,borne/born"],
+["sing → sang → sung","Vowel-change patterns","begin,began,begun|drink,drank,drunk|sing,sang,sung|ring,rang,rung|swim,swam,swum|sink,sank,sunk|shrink,shrank,shrunk|spring,sprang,sprung|cling,clung,clung|swing,swung,swung|sting,stung,stung|dig,dug,dug|hang,hung,hung|stick,stuck,stuck|strike,struck,struck"],
+["B1 stretch","Less common, very useful","become,became,become|overcome,overcame,overcome|undo,undid,undone|overtake,overtook,overtaken|shine,shone,shone|shoot,shot,shot|sweep,swept,swept|deal,dealt,dealt|light,lit/lighted,lit/lighted|slide,slid,slid|bleed,bled,bled|flee,fled,fled|wind,wound,wound|lay,laid,laid|spit,spat/spit,spat/spit"],
+["Two ways to say it","British and American variants, both correct","beat,beat,beaten|burn,burnt/burned,burnt/burned|dream,dreamt/dreamed,dreamt/dreamed|learn,learnt/learned,learnt/learned|kneel,knelt/kneeled,knelt/kneeled|leap,leapt/leaped,leapt/leaped|lean,leant/leaned,leant/leaned|spill,spilt/spilled,spilt/spilled|spell,spelt/spelled,spelt/spelled|creep,crept,crept|weep,wept,wept|sew,sewed,sewn/sewed|prove,proved,proven/proved|swell,swelled,swollen/swelled|tread,trod,trodden/trod"]
+];
+const S=SEC.map(([n,d,s])=>({n,d,v:s.split('|').map(x=>x.split(',').map(y=>y.split('/')))}));
+const LBL=['Infinitive','Past simple','Past participle'];
+const FR=[0,["Yesterday, she ___.","Last week, we ___.","A year ago, they ___."],["I have never ___.","She has already ___.","They have often ___."]];
+let P={stars:0,best:{}};
+try{P=Object.assign(P,JSON.parse(localStorage.getItem('vfl')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('vfl',JSON.stringify(P))}catch(e){}};
+const st={scr:'menu',sec:0,mode:'study',hide:0,q:[],i:0,sc:0,done:0,pk:''};
+const $=id=>document.getElementById(id);
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const disp=f=>f.join(' / ');
+const all=S.flatMap(s=>s.v);
+const reg=v=>v==='be'?'beed':/e$/.test(v)?v+'d':/[^aeiou]y$/.test(v)?v.slice(0,-1)+'ied':v+'ed';
+function build(mode){
+  const mix=st.sec==='mix',p=sh(mix?all:S[st.sec].v).slice(0,mix?15:10);
+  return p.map(v=>{
+    if(mode==='type'){const r=Math.random();return{v,g:r<.6?0:r<.8?1:2}}
+    const t=Math.random()<.5?1:2,ok=v[t],other=v[t===1?2:1][0],c=[];
+    if(!ok.includes(other))c.push(other);
+    if(!['lie','hang'].includes(v[0][0])){const rg=reg(v[0][0]);if(!ok.includes(rg))c.push(rg)}
+    if(!ok.includes(v[0][0]))c.push(v[0][0]);
+    sh(all).forEach(x=>{const f=x[t][0];if(c.length<8&&x!==v&&!ok.includes(f))c.push(f)});
+    const u=[...new Set(c)].slice(0,3);
+    return{v,t,opts:sh([ok[0],...u]),f:FR[t][Math.random()*3|0]};
+  });
+}
+function home(){st.scr='menu';render()}
+function openSec(k){st.sec=k;st.scr='sec';setMode(k==='mix'?'type':'study')}
+function setMode(m){st.mode=m;st.hide=0;st.scr='sec';if(m!=='study'){st.q=build(m);st.i=0;st.sc=0;st.done=0;st.pk=''}render()}
+function prog(){return `<div class="pr"><b style="width:${st.i/st.q.length*100}%"></b></div><div class="cnt">${st.i+1} / ${st.q.length}</div>`}
+function rMenu(){
+  const c=(k,n,d,ex,num)=>`<button class="card" onclick='openSec(${JSON.stringify(k)})'><div class="num">${num}</div><h3>${n}</h3><p>${d}</p><div class="ex">${ex}</div>${P.best[k]!=null?`<div class="bst">Best ${P.best[k]}%</div>`:''}</button>`;
+  return `<h1>Master all three forms</h1><p class="mut">Infinitive · Past simple · Past participle — ${all.length} irregular verbs in 9 sections of 15.</p><div class="g">`
+   +S.map((s,i)=>c(i,s.n,s.d,s.v[3].map(f=>f[0]).join(' · '),'SECTION '+(i+1))).join('')
+   +c('mix','Mix: all verbs','Random verbs from every section — the final test','?  ·  ?  ·  ?','REVIEW')+`</div>`;
+}
+function rStudy(){
+  const v=S[st.sec].v;
+  return `<div class="bar"><button class="btn2" onclick="st.hide=!st.hide;render()">${st.hide?'Show all':'Cover forms (test yourself)'}</button></div>`
+  +`<table class="${st.hide?'cov':''}"><tr>${LBL.map((l,i)=>`<th><span class="ch k${i+1}">${l}</span></th>`).join('')}</tr>`
+  +v.map(x=>`<tr><td class="f1">${disp(x[0])}</td><td class="f2 h" onclick="this.classList.toggle('on')"><span>${disp(x[1])}</span></td><td class="f3 h" onclick="this.classList.toggle('on')"><span>${disp(x[2])}</span></td></tr>`).join('')+`</table>`;
+}
+function rType(){
+  const q=st.q[st.i],g=q.g,ms=[0,1,2].filter(x=>x!==g);
+  return prog()+`<div class="pc"><span class="ch k${g+1}">${LBL[g]}</span><div class="big">${disp(q.v[g])}</div></div>`
+  +ms.map(k=>`<label class="lb"><span class="ch k${k+1}">${LBL[k]}</span><input id="i${k}" autocomplete="off" autocapitalize="off" spellcheck="false"></label>`).join('')
+  +`<div id="fb"></div><div class="act"><button class="btn" id="go" onclick="check()">Check</button></div>`;
+}
+function rPick(){
+  const q=st.q[st.i],ok=q.v[q.t][0];
+  return prog()+`<div class="pc"><span class="ch k${q.t+1}">${LBL[q.t]}</span><div class="sent">${q.f.replace('___','<u></u>')}</div><div class="hint">verb: <b>${q.v[0][0]}</b></div></div>`
+  +`<div class="og">${q.opts.map(o=>`<button class="opt ${st.done?(o===ok?'ok':o===st.pk?'bad':''):''}" ${st.done?'disabled':''} onclick="pick('${o}')">${o}</button>`).join('')}</div>`
+  +(st.done?`<div class="fb ${st.pk===ok?'good':'bad'}">${st.pk===ok?'Correct ✓':'Answer: '+disp(q.v[q.t])}</div><div class="act"><button class="btn" onclick="next()">${st.i+1>=st.q.length?'See results':'Next →'}</button></div>`:'');
+}
+function rSec(){
+  const mix=st.sec==='mix',t=mix?{n:'Mix: all verbs',d:'Random verbs from every section'}:S[st.sec];
+  const tabs=(mix?[['type','Type it'],['pick','Quick pick']]:[['study','Study'],['type','Type it'],['pick','Quick pick']]);
+  return `<button class="back" onclick="home()">← All sections</button><h2 class="title">${t.n}</h2><p class="mut">${t.d}</p>`
+  +`<div class="tabs">${tabs.map(([m,l])=>`<button class="tab ${st.mode===m?'on':''}" onclick="setMode('${m}')">${l}</button>`).join('')}</div>`
+  +(st.mode==='study'?rStudy():st.mode==='type'?rType():rPick());
+}
+function rRes(){
+  const n=st.q.length,p=st.sc/n;
+  return `<div class="res"><div class="big2">${st.sc}/${n}</div><h2>${p===1?'Perfect round':p>=.7?'Strong work':p>=.4?'Getting there':'Keep practicing'}</h2><p class="mut">+${st.sc} ⭐ earned</p><div class="act"><button class="btn" onclick="setMode('${st.mode}')">Play again</button><button class="btn2" onclick="openSec(st.sec)">Back to section</button><button class="btn2" onclick="home()">All sections</button></div></div>`;
+}
+function check(){
+  if(st.done)return next();
+  const q=st.q[st.i];let ok=1,msg='';
+  [0,1,2].filter(x=>x!==q.g).forEach(k=>{
+    const el=$('i'+k),good=q.v[k].includes(el.value.trim().toLowerCase());
+    el.classList.add(good?'ok':'bad');el.disabled=true;
+    if(!good){ok=0;msg+=`<div>${LBL[k]}: <b>${disp(q.v[k])}</b></div>`}
+  });
+  st.done=1;if(ok)st.sc++;
+  $('fb').innerHTML=ok?'<div class="fb good">Both correct ✓</div>':`<div class="fb bad">${msg}</div>`;
+  $('go').textContent=st.i+1>=st.q.length?'See results':'Next →';
+}
+function pick(o){if(st.done)return;st.pk=o;st.done=1;if(o===st.q[st.i].v[st.q[st.i].t][0])st.sc++;render()}
+function next(){st.i++;st.done=0;st.pk='';if(st.i>=st.q.length){finish();return}render()}
+function finish(){
+  P.stars+=st.sc;P.best[st.sec]=Math.max(P.best[st.sec]||0,Math.round(st.sc/st.q.length*100));save();
+  st.scr='res';render();
+}
+function render(){
+  $('sc').textContent=P.stars;
+  $('app').innerHTML=st.scr==='menu'?rMenu():st.scr==='res'?rRes():rSec();
+  if(st.scr==='sec'&&st.mode==='type'){const e=document.querySelector('#app input');e&&e.focus()}
+}
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Enter'||st.scr!=='sec'||st.mode!=='type'||!st.q[st.i])return;
+  const q=st.q[st.i],ms=[0,1,2].filter(x=>x!==q.g),a=$('i'+ms[0]),b=$('i'+ms[1]);
+  if(!st.done&&e.target===a&&!b.value){b.focus();return}
+  check();
+});
+render();
+</script>
+</body>
+</html>
